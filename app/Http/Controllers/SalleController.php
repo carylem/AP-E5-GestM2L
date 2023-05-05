@@ -49,7 +49,7 @@ class SalleController extends Controller
      */
     public function show(salle $salle)
     {
-        //
+        return view('gestion.description');
     }
 
     /**
