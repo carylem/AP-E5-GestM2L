@@ -9,5 +9,5 @@ class salle extends Model
 {
     use HasFactory;
     protected $primaryKey='numeroSalle';
-
+    public $timestamps = false;
 }

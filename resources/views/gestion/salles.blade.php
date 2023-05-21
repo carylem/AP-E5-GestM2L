@@ -18,31 +18,31 @@
   <div class="line text-center">
 
   <div class="s-12 m-12 l-10 margin-bottom-30 ">
-  <a class="button button-black-stroke text-size-20 margin-bottom-30 " href="">Ajouter une nouvelle salle</a>
+  <a class="button button-black-stroke text-size-20 margin-bottom-30 " href="{{route('salle.create')}}">Ajouter une nouvelle salle</a>
   </div>
 
             <div class="margin">
-                
+
 
             @foreach($lessalles as $salle)
 
-           
+
 
               <div class="s-12 m-12 l-5 margin-bottom-30 ">
                 <div class="padding-2x background-dark" >
                   <!--<i class="icon-sli-shield icon3x text-white margin-bottom-30"></i>-->
-                  <h2 class="text-thin"><a href="{{route('salle.show',$salle->numeroSalle)}}">{{$salle->nom}} </a>: {{$salle->capacite}} places </h2>
-                 
+                  <h2 class="text-thin"><a href="{{route('salle.show',$salle)}}">{{$salle->nom}} </a>: {{$salle->capacite}} places </h2>
+
 
                   <p class="margin-bottom-30">
-                    
+
                     Description
-                
+
 
                 </p>
                     <a class="button button-white-stroke text-size-12" href="">Modifier la salle</a>
                   <a class="button button-white-stroke text-size-12" href="">Supprimer la salle</a>
-                
+
                 </div>
               </div>
             @endforeach

@@ -27,7 +27,7 @@ class SalleController extends Controller
      */
     public function create()
     {
-        //
+        return view("gestion.ajout");
     }
 
     /**
@@ -38,7 +38,41 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, ['numsalle' => 'required']);
+        $this -> validate($request, ['nom' => 'required']);
+        $this -> validate($request, ['capacite' => 'required']);
+        $this -> validate($request, ['equipement' => 'required']);
+        $this -> validate($request, ['service' => 'required']);
+        $this -> validate($request, ['batiment' => 'required']);
+
+
+        
+        $salle = new salle();
+
+
+        $salle->numeroSalle = $request -> input('numsalle');
+        $salle->nom = $request -> input('nom');
+        $salle->capacite = $request -> input('capacite');
+        $salle->equipements = $request -> input('equipement');
+        $salle->services = $request -> input('service');
+        $salle->batiment = $request -> input('batiment');
+
+
+
+        
+
+        $salle->save();
+
+
+
+        
+
+
+        //affichage de la vue qui liste les inscrits
+
+
+        return redirect ('/salle');
+
     }
 
     /**
@@ -49,7 +83,8 @@ class SalleController extends Controller
      */
     public function show(salle $salle)
     {
-        return view('gestion.description');
+        
+        return view('gestion.description', ["maSalle" => $salle]);
     }
 
     /**
