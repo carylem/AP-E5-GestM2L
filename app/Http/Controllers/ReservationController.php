@@ -15,7 +15,7 @@ class ReservationController extends Controller
     public function index()
     {
         $results = Reservation::all();
-        return 
+        return view('gestion.reservation',['lesreservations' => $results]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view("gestion.ajoute");
     }
 
     /**
@@ -36,7 +36,44 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, ['id' => 'required']);
+        $this -> validate($request, ['date' => 'required']);
+        $this -> validate($request, ['heured' => 'required']);
+        $this -> validate($request, ['heuref' => 'required']);
+        $this -> validate($request, ['complement' => 'required']);
+        $this -> validate($request, ['motif' => 'required']);
+        $this -> validate($request, ['codeC' => 'required']);
+        $this -> validate($request, ['nums' => 'required']);
+
+
+
+        
+        $reservation = new reservation();
+
+
+        $reservation->id = $request -> input('id');
+        $reservation->dateres = $request -> input('date');
+        $reservation->heuredeb = $request -> input('heured');
+        $reservation->heurefin = $request -> input('heuref');
+        $reservation->motif = $request -> input('motif');
+        $reservation->complément = $request -> input('complement');
+        $reservation->codeclient = $request -> input('codec');
+        $reservation->numsalle = $resuest -> input('nums');
+
+
+        
+
+        $reservation->save();
+
+
+
+        
+
+
+        //affichage de la vue qui liste les inscrits
+
+
+        return redirect ('/reservation');
     }
 
     /**
@@ -47,7 +84,7 @@ class ReservationController extends Controller
      */
     public function show(reservation $reservation)
     {
-        //
+       return view('gestion.fiche', ["Reserv" => $reservation]);
     }
 
     /**
