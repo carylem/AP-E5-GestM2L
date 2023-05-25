@@ -26,6 +26,7 @@ Route ::resource('ouvrage', 'OuvrageController') ;
 //Route ::resource('prets', 'PretController') ;
 //Route ::resource('evenement', 'EvenementController') ;
 Route ::resource('salle', 'SalleController') ;
+Route ::resource('reservation','ReservationController');
 
 
 //URLs de l'espace admin

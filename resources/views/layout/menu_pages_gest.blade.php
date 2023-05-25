@@ -16,7 +16,7 @@
           <li><a href="{{route('admin-home')}}">Accueil</a></li>
           <li><a href="{{route('salle.index')}}">Les salles</a></li>
           <li><a href="">Les clients</a></li>
-          <li><a href="">Les réservations</a></li>
+          <li><a href="{{route('reservation.index')}}">Les réservations</a></li>
 
           <li><a>Bibliothèque</a>
             <ul>
